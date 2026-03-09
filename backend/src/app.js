@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const runMigrations = require('./config/migrations');
 const authRoutes = require('./routes/authRoutes');
+const productRoutes = require('./routes/productRoutes');
 
 const app = express();
 
@@ -15,6 +16,7 @@ runMigrations();
 
 // Rotas
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
 
 // Rota de teste
 app.get('/api/health', (req, res) => {
